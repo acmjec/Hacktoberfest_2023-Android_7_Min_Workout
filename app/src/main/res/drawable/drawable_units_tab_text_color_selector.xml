@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO(Step 4 : Added a selector for the text color in the radio button as per the state.)-->
+<!--START-->
+<!--to handle text color of selected and non selected radio button-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--for selected item-->
+    <item android:color="#FFFFFF" android:state_checked="true" />
+<!--for not selected item -->
+    <item android:color="#ADB3BE" android:state_checked="false" />
+</selector>
+    <!--END-->

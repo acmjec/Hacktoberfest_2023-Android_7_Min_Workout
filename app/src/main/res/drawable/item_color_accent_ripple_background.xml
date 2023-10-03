@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:color="@color/lightGrey"
+    >
+<!--    we have made a custom button that is circular start button...So when we click on it we want to show click effect only in the circular part not whole square button...for this we use ripple-->
+
+<!--    added what type and shape of effect-->
+    <item android:id="@android:id/mask">
+        <shape android:shape="oval">
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+<!-- effect on which item -->
+    <item
+        android:drawable="@drawable/item_circular_color_accent_border"/>
+
+</ripple>

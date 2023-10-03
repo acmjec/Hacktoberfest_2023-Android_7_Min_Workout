@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    to add Default values to layout we are making....we create these type of dimens and add these parameter at top of activity main so it applies to all-->
+    <dimen name="main_Screen_main_layout_padding">5dp</dimen>
+    <dimen name="default_Button_textSize">22sp</dimen>
+</resources>
