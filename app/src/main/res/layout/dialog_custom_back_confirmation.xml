@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Are you sure?"
+        android:text="@string/are_you_sure"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:gravity="center"
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This will stop your workout. You've come this far,       Are you sure you want to quit? "
+        android:text="@string/this_will_stop_your_workout_you_ve_come_this_far_are_you_sure_you_want_to_quit"
         android:textSize="16sp"
         android:textColor="#212121"
         android:layout_marginTop="10dp"
@@ -44,7 +44,7 @@
             android:background="@drawable/dialog_btn_drawable"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="YES"
+            android:text="@string/yes"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -56,7 +56,7 @@
             android:layout_weight="1"
             android:background="@drawable/dialog_btn_drawable"
             android:gravity="center"
-            android:text="NO"
+            android:text="@string/no"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
