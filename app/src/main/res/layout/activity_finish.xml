@@ -60,7 +60,7 @@
         android:textColor="@color/black"
         android:textSize="22sp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnFinish"
         android:layout_width="150dp"
         android:layout_height="wrap_content"

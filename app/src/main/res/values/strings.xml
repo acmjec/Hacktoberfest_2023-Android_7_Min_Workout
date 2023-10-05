@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">7 Minutes Workout</string>
     <string name="image">Image_Button</string>
+    <string name="exercise_completed_history">EXERCISE COMPLETED History</string>
+    <string name="no_data_available">NO DATA AVAILABLE</string>
+    <string name="this_will_stop_your_workout_you_ve_come_this_far_are_you_sure_you_want_to_quit">This will stop your workout. You\'ve come this far, Are you sure you want to quit?</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="your_bmi">YOUR BMI</string>
+    <string name="inch">Inch</string>
+    <string name="feet">Feet</string>
+    <string name="weight_in_pounds">WEIGHT (in pounds)</string>
+    <string name="height_in_cm">HEIGHT (in cm)</string>
+    <string name="weight_in_kg">WEIGHT (in kg)</string>
+    <string name="us_units">US UNITS</string>
+    <string name="metric_units">METRIC UNITS</string>
+    <string name="get_ready_for">GET READY FOR</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="upcoming_exercise">Upcoming Exercise:</string>
 </resources>
