@@ -145,6 +145,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvUpcomingExercise?.visibility=View.VISIBLE
         binding?.tvNextExercise?.visibility=View.VISIBLE
         binding?.tvExerciseName?.visibility=View.INVISIBLE
+        binding?.tvExerciseDesc?.visibility=View.INVISIBLE
         binding?.flExerciseView?.visibility=View.INVISIBLE
         binding?.ivImage?.visibility=View.INVISIBLE
 
@@ -165,6 +166,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.flRestView?.visibility= View.INVISIBLE
         binding?.tvTitle?.visibility=View.INVISIBLE
         binding?.tvExerciseName?.visibility=View.VISIBLE
+        binding?.tvExerciseDesc?.visibility=View.VISIBLE
         binding?.flExerciseView?.visibility=View.VISIBLE
         binding?.ivImage?.visibility=View.VISIBLE
 
@@ -177,6 +179,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         speakOut(exerciseList!![currentExercisePosition].getName())
         binding?.ivImage?.setImageResource(exerciseList!![currentExercisePosition].getImage())
         binding?.tvExerciseName?.text=exerciseList!![currentExercisePosition].getName()
+        binding?.tvExerciseDesc?.text=exerciseList!![currentExercisePosition].getDesc()
 
         setExerciseProgressBar()
     }

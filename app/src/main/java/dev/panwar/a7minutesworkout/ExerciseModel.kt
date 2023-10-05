@@ -3,6 +3,7 @@ package dev.panwar.a7minutesworkout
 class ExerciseModel(
     private var id: Int,
     private var name:String,
+    private var desc: String,
     private var image: Int,
     private var isCompleted: Boolean,
     private var isSelected: Boolean
@@ -21,6 +22,14 @@ class ExerciseModel(
 
     fun setName(name: String) {
         this.name = name
+    }
+
+    fun getDesc(): String {
+        return desc
+    }
+
+    fun setDesc(desc: String) {
+        this.desc = desc
     }
 
     fun getImage(): Int {
