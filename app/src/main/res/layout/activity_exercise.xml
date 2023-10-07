@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExerciseActivity">
+    tools:context=".ExerciseActivity"
+    android:background="@color/background_color">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarExercise"
@@ -14,7 +15,6 @@
         android:theme="@style/toolbarTheme"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/white"
-        android:titleTextColor="@color/colorPrimary"
         >
 
     </androidx.appcompat.widget.Toolbar>

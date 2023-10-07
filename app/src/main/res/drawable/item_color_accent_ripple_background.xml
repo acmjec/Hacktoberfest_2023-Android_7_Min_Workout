@@ -8,7 +8,7 @@
 <!--    added what type and shape of effect-->
     <item android:id="@android:id/mask">
         <shape android:shape="oval">
-            <solid android:color="@color/white"/>
+            <solid android:color="#FFFFFFFF"/>
         </shape>
     </item>
 <!-- effect on which item -->

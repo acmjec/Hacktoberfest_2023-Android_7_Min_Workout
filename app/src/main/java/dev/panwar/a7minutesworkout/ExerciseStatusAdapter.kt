@@ -34,15 +34,15 @@ class ExerciseStatusAdapter(val Exercises:ArrayList<ExerciseModel>) : RecyclerVi
         model.getIsSelected()->{
 //            holder.itemView.context gives the context of item in holder
             holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_thin_color_accent_border)
-            holder.tvItem.setTextColor(Color.parseColor("#212121"))
+            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,R.color.light_black))
         }
         model.getIsCompleted()->{
             holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_color_accent_background)
-            holder.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
+            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,R.color.white))
         }
         else->{
             holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_color_gray_background)
-            holder.tvItem.setTextColor(Color.parseColor("#212121"))
+            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,R.color.light_white))
         }
     }
     }
