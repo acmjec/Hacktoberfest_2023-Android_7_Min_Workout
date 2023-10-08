@@ -3,6 +3,7 @@ package dev.panwar.a7minutesworkout
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import dev.panwar.a7minutesworkout.databinding.ItemHistoryRowBinding
 
@@ -45,11 +46,11 @@ class HistoryAdapter(private val items: ArrayList<String>) :
         // Updating the background color according to the odd/even positions in list.
         if (position % 2 == 0) {
             holder.llHistoryItemMain.setBackgroundColor(
-                Color.parseColor("#EBEBEB")
+                ContextCompat.getColor(holder.itemView.context,R.color.light_white)
             )
         } else {
             holder.llHistoryItemMain.setBackgroundColor(
-                Color.parseColor("#FFFFFF")
+                ContextCompat.getColor(holder.itemView.context,R.color.white)
             )
         }
     }

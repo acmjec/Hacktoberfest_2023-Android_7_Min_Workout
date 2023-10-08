@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/this_will_stop_your_workout_you_ve_come_this_far_are_you_sure_you_want_to_quit"
         android:textSize="16sp"
-        android:textColor="#212121"
+        android:textColor="@color/light_black"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"

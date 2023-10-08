@@ -10,7 +10,7 @@
     android:background="@drawable/item_circular_color_gray_background"
     android:gravity="center"
     android:padding="3dp"
-    android:textColor="#212121"
+    android:textColor="@color/light_black"
     android:textSize="14sp"
     android:textStyle="bold"
     tools:text="1" />

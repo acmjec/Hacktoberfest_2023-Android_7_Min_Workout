@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BMIActivity">
+    tools:context=".BMIActivity"
+    android:background="@color/background_color">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_bmi_activity"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#FFFFFF" />
+        android:background="@color/white" />
 
 
     <!--positioned below toolbar-->
@@ -192,6 +193,7 @@
             android:gravity="center"
             android:text="@string/your_bmi"
             android:textAllCaps="true"
+            android:textColor="@color/light_black"
             android:textSize="16sp" />
 
         <TextView
@@ -202,6 +204,7 @@
             android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/light_black"
             tools:text="15.00" />
 
         <TextView
@@ -211,6 +214,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:textSize="18sp"
+            android:textColor="@color/light_black"
             tools:text="Normal" />
 
         <TextView
@@ -220,6 +224,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:textSize="18sp"
+            android:textColor="@color/light_black"
             tools:text="Normal" />
 
     </LinearLayout>

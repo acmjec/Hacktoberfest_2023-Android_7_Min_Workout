@@ -6,7 +6,7 @@
 <!--    whatever used to draw shape is Stroke-->
     <stroke
         android:width="5dp"
-        android:color="@color/white"
+        android:color="#FFFFFFFF"
         />
 <!--    whatever inside shape is solid-->
     <solid
