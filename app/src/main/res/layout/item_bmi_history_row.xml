@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_history_item_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_white"
+    android:orientation="horizontal"
+    android:padding="15dp">
+    <TextView
+        android:id="@+id/tvPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/light_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tvItemWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/light_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Weight" />
+
+    <TextView
+        android:id="@+id/tvItemheight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/light_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Height" />
+
+    <TextView
+        android:id="@+id/tvItemBmi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/light_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="BMI" />
+</LinearLayout>
+    <!--END-->

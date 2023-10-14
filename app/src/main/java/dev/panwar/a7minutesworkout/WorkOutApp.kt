@@ -7,4 +7,7 @@ class WorkOutApp: Application() {
     val db:HistoryDatabase by lazy {
         HistoryDatabase.getInstance(this)
     }
+    val dbBmi:BMIDatabase by lazy {
+        BMIDatabase.getInstance(this)
+    }
 }

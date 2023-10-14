@@ -251,5 +251,5 @@
         android:layout_height="256dp"
         android:layout_below="@id/llDiplayBMIResult"
         android:layout_marginTop="57dp"
-        android:background="@drawable/img_1" />
+        android:background="@drawable/img_1_removebg" />
 </RelativeLayout>

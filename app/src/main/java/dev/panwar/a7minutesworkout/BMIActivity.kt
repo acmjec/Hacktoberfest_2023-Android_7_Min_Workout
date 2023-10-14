@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import dev.panwar.a7minutesworkout.databinding.ActivityBmiBinding
+import kotlinx.coroutines.launch
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -59,22 +61,36 @@ class BMIActivity : AppCompatActivity() {
         // END
     }
 
+    private fun insertBmiHistory(dao: BMIDao, weightValue: String, heightValue: String,bmi:String) {
+
+        lifecycleScope.launch {
+            dao.insert(BMIModel( weight = weightValue, height = heightValue, bmi = bmi)) // Add date function is called.
+
+        }
+
+    }
+
+
     private fun calculateUnits(){
         //TODO(Step 2 : Handling the current visible view and calculating US UNITS view input values if they are valid.)
         // START
+
+        val dao=(application as WorkOutApp).dbBmi.bmiDao()
+
         if (currentVisibleView == METRIC_UNITS_VIEW) {
             // The values are validated.
             if (validateMetricUnits()) {
 
                 // The height value is converted to float value and divided by 100 to convert it to meter.
-                val heightValue: Float = binding?.etMetricUnitHeight?.text.toString().toFloat() / 100
+                val heightValue= binding?.etMetricUnitHeight?.text.toString()
 
                 // The weight value is converted to float value
-                val weightValue: Float = binding?.etMetricUnitWeight?.text.toString().toFloat()
+                val weightValue= binding?.etMetricUnitWeight?.text.toString()
 
                 // BMI value is calculated in METRIC UNITS using the height and weight value.
-                val bmi = weightValue / (heightValue * heightValue)
+                val bmi = weightValue.toFloat() / (heightValue.toFloat()/100 * heightValue.toFloat()/100)
 
+                insertBmiHistory(dao, weightValue,heightValue,bmi.toString())
                 displayBMIResult(bmi)
             } else {
                 Toast.makeText(
