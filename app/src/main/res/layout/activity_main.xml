@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="BMI"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFFFF"
             android:textSize="@dimen/default_Button_textSize"
             android:textStyle="bold" />
     </FrameLayout>

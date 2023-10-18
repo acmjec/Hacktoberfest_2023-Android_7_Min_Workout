@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO(Step 3 : Designed a custom selector for the Selected Item of the radio button.)-->
+<!--designing the layout of Selected radio Button-->
+<!--START-->
+
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <solid android:color="@color/colorAccent" />
+
+            <corners android:radius="30dp" />
+        </shape>
+
+    <!--END-->

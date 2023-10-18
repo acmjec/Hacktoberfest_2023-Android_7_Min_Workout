@@ -42,6 +42,7 @@ class HistoryBmiAdapter(private val items: ArrayList<BMIModel>) :
         holder.tvPosition.text = (position + 1).toString()
         holder.tvItemWeight.text="Weight: "+model.weight
         holder.tvItemHeight.text="Height: "+model.height
+        holder.tvItemDate.text="Date: "+model.date
         holder.tvItemBmi.text="BMI: "+model.bmi
 
         // Updating the background color according to the odd/even positions in list.
@@ -72,6 +73,7 @@ class HistoryBmiAdapter(private val items: ArrayList<BMIModel>) :
         val tvItemWeight = binding.tvItemWeight
         val tvItemHeight = binding.tvItemheight
         val tvItemBmi = binding.tvItemBmi
+        val tvItemDate = binding.tvItemDate
         val tvPosition = binding.tvPosition
     }
 }
