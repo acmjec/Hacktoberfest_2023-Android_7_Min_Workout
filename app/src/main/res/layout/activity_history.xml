@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoryActivity">
+    tools:context=".HistoryActivity"
+    android:orientation="vertical">
     <!--  we position the toolbar top to top of parent-->
     <androidx.appcompat.widget.Toolbar
         app:layout_constraintTop_toTopOf="parent"
@@ -17,96 +18,31 @@
     <!--TODO(Step 1 : Added a RecyclerView to show the list of completed dates in the History Screen UI.)-->
     <!--START-->
 
-    <RadioGroup
-        android:id="@+id/rgBtn"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/toolbar_history_activity"
-        android:layout_margin="10dp"
         android:background="@drawable/drawable_radio_group_tab_background"
-        android:orientation="horizontal">
-        <!--no need to give width when weight parameter is used-->
-        <!--        checked true means this button is selected initially-->
-        <RadioButton
-            android:id="@+id/rbHistory"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_weight="0.50"
-            android:background="@drawable/drawable_units_tab_selector"
-            android:button="@null"
-            android:checked="true"
-            android:gravity="center"
-            android:text="Exercise History"
-            android:textColor="@drawable/drawable_units_tab_text_color_selector"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_history_activity"
+        app:tabIndicator="@drawable/drawable_view_pager_tab_selector"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorColor="@null"
+        app:tabIndicatorGravity="stretch"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/white">
 
-        <RadioButton
-            android:id="@+id/rbBmi"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_weight="0.50"
-            android:background="@drawable/drawable_units_tab_selector"
-            android:button="@null"
-            android:checked="false"
-            android:gravity="center"
-            android:text="BMI History"
-            android:textColor="@drawable/drawable_units_tab_text_color_selector"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </RadioGroup>
-    <TextView
-        android:id="@+id/tvHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rgBtn"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:text="@string/exercise_completed_history"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_history_activity"
-        tools:visibility="visible" />
+    </com.google.android.material.tabs.TabLayout>
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@id/tvHistory"
-        android:id="@+id/rvHistoryBmi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:visibility="gone"
-        android:layout_below="@id/tvHistory"
-        tools:visibility="gone" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@id/tvHistory"
-        android:id="@+id/rvHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:visibility="gone"
-        android:layout_below="@id/tvHistory"
-        tools:visibility="visible" />
-
-
-    <TextView
-        app:layout_constraintTop_toBottomOf="@id/toolbar_history_activity"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/tvNoDataAvailable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/no_data_available"
-        android:textColor="@color/light_black"
-        android:textSize="18sp"
-        android:visibility="gone"
-        android:layout_below="@id/rvHistory"
-        tools:visibility="visible" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,5 +12,6 @@ data class BMIModel(
     @PrimaryKey
     val weight: String, 
     val height: String,
-    val bmi: String
+    val bmi: String,
+    val date:String
 )

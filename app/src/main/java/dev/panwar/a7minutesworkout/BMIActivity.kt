@@ -9,6 +9,8 @@ import dev.panwar.a7minutesworkout.databinding.ActivityBmiBinding
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
 import java.math.RoundingMode
+import java.text.SimpleDateFormat
+import java.util.*
 
 class BMIActivity : AppCompatActivity() {
 
@@ -61,10 +63,10 @@ class BMIActivity : AppCompatActivity() {
         // END
     }
 
-    private fun insertBmiHistory(dao: BMIDao, weightValue: String, heightValue: String,bmi:String) {
+    private fun insertBmiHistory(dao: BMIDao,date:String, weightValue: String, heightValue: String,bmi:String) {
 
         lifecycleScope.launch {
-            dao.insert(BMIModel( weight = weightValue, height = heightValue, bmi = bmi)) // Add date function is called.
+            dao.insert(BMIModel( date=date,weight = weightValue, height = heightValue, bmi = bmi)) // Add date function is called.
 
         }
 
@@ -74,6 +76,13 @@ class BMIActivity : AppCompatActivity() {
     private fun calculateUnits(){
         //TODO(Step 2 : Handling the current visible view and calculating US UNITS view input values if they are valid.)
         // START
+
+        val c = Calendar.getInstance() // Calendars Current Instance
+        val dateTime = c.time // Current Date and Time of the system.
+
+        //For storing date in bmi history
+        val sdf= SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+        val date=sdf.format(dateTime)
 
         val dao=(application as WorkOutApp).dbBmi.bmiDao()
 
@@ -90,7 +99,7 @@ class BMIActivity : AppCompatActivity() {
                 // BMI value is calculated in METRIC UNITS using the height and weight value.
                 val bmi = weightValue.toFloat() / (heightValue.toFloat()/100 * heightValue.toFloat()/100)
 
-                insertBmiHistory(dao, weightValue,heightValue,bmi.toString())
+                insertBmiHistory(dao,date, weightValue,heightValue,bmi.toString())
                 displayBMIResult(bmi)
             } else {
                 Toast.makeText(

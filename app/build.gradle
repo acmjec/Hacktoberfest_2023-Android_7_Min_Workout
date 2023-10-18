@@ -69,6 +69,8 @@ dependencies {
 // lottie for splash screen
     implementation "com.airbnb.android:lottie:6.1.0"
 
+
     //Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-messaging-ktx:23.2.1'
+
 }

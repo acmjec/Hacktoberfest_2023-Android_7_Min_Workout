@@ -13,6 +13,7 @@
     <color name="lightGrey">#C4C4C4</color>
     <color name="light_black">#212121</color>
     <color name="light_white">#EBEBEB</color>
+    <color name="light_white1">#ADB3BE</color>
 
     <color name="toolbar_color_control_normal">#000000</color>
     <color name="background_color">#FFFFFFFF</color>

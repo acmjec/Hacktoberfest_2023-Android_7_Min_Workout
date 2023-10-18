@@ -6,49 +6,80 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/light_white"
-    android:orientation="horizontal"
-    android:padding="15dp">
-    <TextView
-        android:id="@+id/tvPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/light_black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="1" />
+    android:padding="5dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvItemWeight"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/light_black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="Weight" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvItemheight"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/light_black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="Height" />
+        <TextView
+            android:id="@+id/tvPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/light_black"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            tools:text="1" />
 
-    <TextView
-        android:id="@+id/tvItemBmi"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tvItemWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/light_black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Weight" />
+
+        <TextView
+            android:id="@+id/tvItemheight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/light_black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Height" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/light_black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="BMI" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvItemBmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/light_black"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            tools:text="BMI" />
+
+        <TextView
+            android:id="@+id/tvItemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/light_black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Date" />
+    </LinearLayout>
+
+
+
 </LinearLayout>
     <!--END-->
