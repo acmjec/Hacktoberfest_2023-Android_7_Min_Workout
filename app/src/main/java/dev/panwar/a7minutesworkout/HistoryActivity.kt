@@ -10,7 +10,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import dev.panwar.a7minutesworkout.adapter.ViewPagerAdapter
 import dev.panwar.a7minutesworkout.databinding.ActivityHistoryBinding
+import dev.panwar.a7minutesworkout.model.BMIModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 

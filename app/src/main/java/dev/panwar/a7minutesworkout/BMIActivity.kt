@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import dev.panwar.a7minutesworkout.databinding.ActivityBmiBinding
+import dev.panwar.a7minutesworkout.model.BMIModel
+import dev.panwar.a7minutesworkout.viewmodel.BmiViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.SimpleDateFormat
@@ -20,11 +25,13 @@ class BMIActivity : AppCompatActivity() {
         private const val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW" // Metric Unit View
         private const val US_UNITS_VIEW = "US_UNIT_VIEW" // US Unit View
     }
-// at starting we have metric view as current visible view
+    // at starting we have metric view as current visible view
     private var currentVisibleView: String = METRIC_UNITS_VIEW // A variable to hold a value to make a selected view visible
     // END
     // create binding for the activity
     private var binding: ActivityBmiBinding? = null
+
+    private lateinit var bmiViewModel: BmiViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //inflate the layout
@@ -63,10 +70,12 @@ class BMIActivity : AppCompatActivity() {
         // END
     }
 
-    private fun insertBmiHistory(dao: BMIDao,date:String, weightValue: String, heightValue: String,bmi:String) {
+    private fun insertBmiHistory(bmiViewModel: BmiViewModel, date:String, weightValue: String, heightValue: String, bmi:String) {
 
         lifecycleScope.launch {
-            dao.insert(BMIModel( date=date,weight = weightValue, height = heightValue, bmi = bmi)) // Add date function is called.
+            withContext(Dispatchers.IO){
+                bmiViewModel.insert(BMIModel( date=date,weight = weightValue, height = heightValue, bmi = bmi)) // Add date function is called.
+            }
 
         }
 
@@ -84,7 +93,11 @@ class BMIActivity : AppCompatActivity() {
         val sdf= SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
         val date=sdf.format(dateTime)
 
-        val dao=(application as WorkOutApp).dbBmi.bmiDao()
+        val dao=(application as WorkOutApp)
+        val bmiViewModelFactory=dao.bmiViewModelFactory
+
+        bmiViewModel= ViewModelProvider(this,
+            bmiViewModelFactory)[BmiViewModel::class.java]
 
         if (currentVisibleView == METRIC_UNITS_VIEW) {
             // The values are validated.
@@ -99,7 +112,7 @@ class BMIActivity : AppCompatActivity() {
                 // BMI value is calculated in METRIC UNITS using the height and weight value.
                 val bmi = weightValue.toFloat() / (heightValue.toFloat()/100 * heightValue.toFloat()/100)
 
-                insertBmiHistory(dao,date, weightValue,heightValue,bmi.toString())
+                insertBmiHistory(bmiViewModel,date, weightValue,heightValue,bmi.toString())
                 displayBMIResult(bmi)
             } else {
                 Toast.makeText(

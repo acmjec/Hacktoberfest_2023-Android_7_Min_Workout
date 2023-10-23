@@ -1,4 +1,4 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.model
 
 class ExerciseModel(
     private var id: Int,
