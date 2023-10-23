@@ -1,12 +1,12 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import dev.panwar.a7minutesworkout.databinding.ItemExerciseStatusBinding
 import dev.panwar.a7minutesworkout.model.ExerciseModel
+import dev.panwar.a7minutesworkout.R
+import dev.panwar.a7minutesworkout.databinding.ItemExerciseStatusBinding
 
 //using recyclerview with view binding
 class ExerciseStatusAdapter(val Exercises:ArrayList<ExerciseModel>) : RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>() {
@@ -26,7 +26,7 @@ class ExerciseStatusAdapter(val Exercises:ArrayList<ExerciseModel>) : RecyclerVi
 
 //after binding view holder....whenever there is a change in view this function is called..
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model:ExerciseModel=Exercises[position]
+        val model: ExerciseModel =Exercises[position]
         holder.tvItem.text=model.getId().toString()
 
 
@@ -34,16 +34,28 @@ class ExerciseStatusAdapter(val Exercises:ArrayList<ExerciseModel>) : RecyclerVi
 //        which exercise is going on
         model.getIsSelected()->{
 //            holder.itemView.context gives the context of item in holder
-            holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_thin_color_accent_border)
-            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,R.color.light_black))
+            holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,
+                R.drawable.item_circular_thin_color_accent_border
+            )
+            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.light_black
+            ))
         }
         model.getIsCompleted()->{
-            holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_color_accent_background)
-            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,R.color.white))
+            holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,
+                R.drawable.item_circular_color_accent_background
+            )
+            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.white
+            ))
         }
         else->{
-            holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_color_gray_background)
-            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,R.color.light_white))
+            holder.tvItem.background=ContextCompat.getDrawable(holder.itemView.context,
+                R.drawable.item_circular_color_gray_background
+            )
+            holder.tvItem.setTextColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.light_white
+            ))
         }
     }
     }

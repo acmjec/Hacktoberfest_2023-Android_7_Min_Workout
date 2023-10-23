@@ -1,4 +1,7 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.utils
+
+import dev.panwar.a7minutesworkout.R
+import dev.panwar.a7minutesworkout.model.ExerciseModel
 
 object Constants {
 

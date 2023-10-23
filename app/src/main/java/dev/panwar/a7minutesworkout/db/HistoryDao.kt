@@ -1,9 +1,10 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
+import dev.panwar.a7minutesworkout.model.HistoryEntity
 
 //create a dao interface with insert method
 @Dao
@@ -13,5 +14,5 @@ interface HistoryDao {
     suspend fun insert(historyEntity: HistoryEntity)
 
     @Query("Select * from `history-table`")
-    fun fetchALlDates():Flow<List<HistoryEntity>>
+    fun fetchALlDates():LiveData<List<HistoryEntity>>
 }

@@ -1,16 +1,17 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import dev.panwar.a7minutesworkout.databinding.ItemBmiHistoryRowBinding
+import dev.panwar.a7minutesworkout.R
+import dev.panwar.a7minutesworkout.databinding.ItemHistoryRowBinding
 
 
 // TODO(Step 2 : Created a adapter class to bind the to RecyclerView to show the list of completed dates in History Screen.)
 // START
-class HistoryBmiAdapter(private val items: ArrayList<BMIModel>) :
-    RecyclerView.Adapter<HistoryBmiAdapter.ViewHolder>() {
+class HistoryAdapter(private val items: ArrayList<String>) :
+    RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     /**
      * Inflates the item views which is designed in xml layout file
@@ -20,7 +21,7 @@ class HistoryBmiAdapter(private val items: ArrayList<BMIModel>) :
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ItemBmiHistoryRowBinding.inflate(
+            ItemHistoryRowBinding.inflate(
             LayoutInflater.from(parent.context),parent,false)
         )
     }
@@ -37,22 +38,19 @@ class HistoryBmiAdapter(private val items: ArrayList<BMIModel>) :
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val model: BMIModel = items.get(position)
+        val date: String = items.get(position)
 
         holder.tvPosition.text = (position + 1).toString()
-        holder.tvItemWeight.text="Weight: "+model.weight
-        holder.tvItemHeight.text="Height: "+model.height
-        holder.tvItemDate.text="Date: "+model.date
-        holder.tvItemBmi.text="BMI: "+model.bmi
+        holder.tvItem.text = date
 
         // Updating the background color according to the odd/even positions in list.
         if (position % 2 == 0) {
             holder.llHistoryItemMain.setBackgroundColor(
-                ContextCompat.getColor(holder.itemView.context,R.color.light_white)
+                ContextCompat.getColor(holder.itemView.context, R.color.light_white)
             )
         } else {
             holder.llHistoryItemMain.setBackgroundColor(
-                ContextCompat.getColor(holder.itemView.context,R.color.white)
+                ContextCompat.getColor(holder.itemView.context, R.color.white)
             )
         }
     }
@@ -67,13 +65,10 @@ class HistoryBmiAdapter(private val items: ArrayList<BMIModel>) :
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
      */
-    class ViewHolder(binding: ItemBmiHistoryRowBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(binding: ItemHistoryRowBinding) : RecyclerView.ViewHolder(binding.root) {
         // Holds the TextView that will add each item to
         val llHistoryItemMain = binding.llHistoryItemMain
-        val tvItemWeight = binding.tvItemWeight
-        val tvItemHeight = binding.tvItemheight
-        val tvItemBmi = binding.tvItemBmi
-        val tvItemDate = binding.tvItemDate
+        val tvItem = binding.tvItem
         val tvPosition = binding.tvPosition
     }
 }

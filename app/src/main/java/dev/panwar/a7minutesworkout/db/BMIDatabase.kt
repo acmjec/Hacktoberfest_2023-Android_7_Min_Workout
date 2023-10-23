@@ -1,14 +1,17 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import dev.panwar.a7minutesworkout.model.BMIModel
+
 // create the database
-@Database(entities = [BMIModel::class],version = 3)
+//1ad69cadf07b0b218707bd2965b69a0533367a37g
+@Database(entities = [BMIModel::class],version = 4)
 abstract class BMIDatabase:RoomDatabase(){
 
-    abstract fun bmiDao():BMIDao
+    abstract fun bmiDao(): BMIDao
 
     /**
      * Define a companion object, this allows us to add functions on the HistoryDatabase class.

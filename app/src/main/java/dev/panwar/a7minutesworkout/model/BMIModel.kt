@@ -1,4 +1,4 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -14,6 +14,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.panwar.a7minutesworkout.databinding.ActivityExerciseBinding
 import dev.panwar.a7minutesworkout.databinding.DialogCustomBackConfirmationBinding
+import dev.panwar.a7minutesworkout.model.ExerciseModel
+import dev.panwar.a7minutesworkout.utils.Constants
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -60,7 +62,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 customDialogForBackButton()
             }
 
-        exerciseList=Constants.defaultExerciseList()
+        exerciseList= Constants.defaultExerciseList()
 
 //        write this goto...hover on this and in more actions select 2nd option
         tts= TextToSpeech(this,this)

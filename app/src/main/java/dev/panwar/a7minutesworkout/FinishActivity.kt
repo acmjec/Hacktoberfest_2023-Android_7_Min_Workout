@@ -3,14 +3,20 @@ package dev.panwar.a7minutesworkout
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import dev.panwar.a7minutesworkout.databinding.ActivityFinishBinding
+import dev.panwar.a7minutesworkout.model.HistoryEntity
+import dev.panwar.a7minutesworkout.viewmodel.ExerciseViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
 class FinishActivity : AppCompatActivity() {
     private var binding: ActivityFinishBinding? = null
+    private lateinit var exerciseViewModel: ExerciseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +34,17 @@ class FinishActivity : AppCompatActivity() {
         }
 
         //get the dao through the database in the application class
-        val dao = (application as WorkOutApp).db.historyDao()
-        addDateToDatabase(dao)
+        val dao = (application as WorkOutApp)
+        val exerciseViewModelFactory=dao.exerciseViewModelFactory
+        exerciseViewModel=ViewModelProvider(this,exerciseViewModelFactory)[ExerciseViewModel::class.java]
+        addDateToDatabase(exerciseViewModel)
     }
 
     // START
     /**
      * Function is used to insert the current system date in the sqlite database.
      */
-    private fun addDateToDatabase(historyDao: HistoryDao) {
+    private fun addDateToDatabase(exerciseViewModel: ExerciseViewModel) {
 
         val c = Calendar.getInstance() // Calendars Current Instance
         val dateTime = c.time // Current Date and Time of the system.
@@ -55,7 +63,9 @@ class FinishActivity : AppCompatActivity() {
         Log.e("Formatted Date : ", "" + date) // Formatted date is printed in the log.
 
         lifecycleScope.launch {
-            historyDao.insert(HistoryEntity(date)) // Add date function is called.
+            withContext(Dispatchers.IO){
+                exerciseViewModel.insertHistoryEntity(HistoryEntity(date)) // Add date function is called.
+            }
             Log.e(
                 "Date : ",
                 "Added..."
