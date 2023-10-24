@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import dev.panwar.a7minutesworkout.model.HistoryEntity
 
 // create the database
-@Database(entities = [HistoryEntity::class],version = 1)
+@Database(entities = [HistoryEntity::class],version = 2)
 abstract class HistoryDatabase:RoomDatabase(){
 
     abstract fun historyDao(): HistoryDao

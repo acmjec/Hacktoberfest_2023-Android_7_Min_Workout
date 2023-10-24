@@ -19,4 +19,10 @@
     <string name="get_ready_for">GET READY FOR</string>
     <string name="exercise_name">Exercise Name</string>
     <string name="upcoming_exercise">Upcoming Exercise:</string>
+    <string name="menu_history_delete">Delete</string>
+    <string name="dialog_delete_history_title">Delete Exercise History</string>
+    <string name="dialog_delete_history_confirmation">Are you sure? This is permanently.</string>
+    <string name="dialog_confirmation">Yes</string>
+    <string name="snack_history_deleted">History deleted.</string>
+    <string name="dialog_negative">No</string>
 </resources>

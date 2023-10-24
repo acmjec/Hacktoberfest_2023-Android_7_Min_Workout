@@ -9,6 +9,10 @@ class ExerciseRepository(private val dao: HistoryDao) {
         dao.insert(historyEntity)
     }
 
+    suspend fun deleteDatabase() {
+        dao.deleteDatabase()
+    }
+
     fun getAllHistoryDates(): LiveData<List<HistoryEntity>> {
         return dao.fetchALlDates()
     }

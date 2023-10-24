@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace 'dev.panwar.a7minutesworkout'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "dev.panwar.a7minutesworkout"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -64,4 +64,12 @@ dependencies {
 
 // lottie for splash screen
     implementation "com.airbnb.android:lottie:6.1.0"
+
+    //material design
+    // Material Design
+    implementation 'com.google.android.material:material:1.11.0-alpha03'
+
+    // Material Dialogs
+    implementation "com.afollestad.material-dialogs:core:3.3.0"
+    implementation "com.afollestad.material-dialogs:bottomsheets:3.3.0"
 }

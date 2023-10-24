@@ -1,13 +1,15 @@
 package dev.panwar.a7minutesworkout
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.afollestad.materialdialogs.LayoutMode
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import dev.panwar.a7minutesworkout.adapter.HistoryAdapter
 import dev.panwar.a7minutesworkout.databinding.FragmentExerciseHistoryBinding
 import dev.panwar.a7minutesworkout.viewmodel.ExerciseViewModel
@@ -80,7 +82,6 @@ class ExerciseHistoryFragment : Fragment() {
         }
 
     }
-
     override fun onDestroy() {
         super.onDestroy()
 // reset the binding to null to avoid memory leak

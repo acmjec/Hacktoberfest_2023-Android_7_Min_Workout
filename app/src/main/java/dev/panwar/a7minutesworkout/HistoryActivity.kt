@@ -5,14 +5,23 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.afollestad.materialdialogs.LayoutMode
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.google.android.material.tabs.TabLayout
 import dev.panwar.a7minutesworkout.adapter.ViewPagerAdapter
 import dev.panwar.a7minutesworkout.databinding.ActivityHistoryBinding
 import dev.panwar.a7minutesworkout.model.BMIModel
+import dev.panwar.a7minutesworkout.viewmodel.ExerciseViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -21,6 +30,7 @@ class HistoryActivity : AppCompatActivity() {
     private var binding: ActivityHistoryBinding? = null
     private lateinit var list:ArrayList<BMIModel>
     private lateinit var adapter: ViewPagerAdapter
+    private lateinit var exerciseViewModel:ExerciseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,6 +106,36 @@ class HistoryActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_history, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_history_delete -> deleteHistory()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteHistory() {
+
+        val dao=(applicationContext as WorkOutApp)
+        val exerciseViewModelFactory=dao.exerciseViewModelFactory
+        exerciseViewModel= ViewModelProvider(this,exerciseViewModelFactory)[ExerciseViewModel::class.java]
+        MaterialDialog(this@HistoryActivity, BottomSheet(LayoutMode.WRAP_CONTENT)).show {
+            icon(R.drawable.ic_delete)
+            title(R.string.dialog_delete_history_title)
+            message(R.string.dialog_delete_history_confirmation)
+            positiveButton(R.string.dialog_confirmation) {
+                // Call the deleteDatabase function from your ViewModel to delete the history
+                exerciseViewModel.deleteDatabase()
+                Toast.makeText(this@HistoryActivity, "History deleted.", Toast.LENGTH_SHORT).show()
+            }
+            negativeButton(R.string.dialog_negative)
+        }
     }
 
 
