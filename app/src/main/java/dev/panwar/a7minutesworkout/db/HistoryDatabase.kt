@@ -1,14 +1,16 @@
-package dev.panwar.a7minutesworkout
+package dev.panwar.a7minutesworkout.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import dev.panwar.a7minutesworkout.model.HistoryEntity
+
 // create the database
 @Database(entities = [HistoryEntity::class],version = 1)
 abstract class HistoryDatabase:RoomDatabase(){
 
-    abstract fun historyDao():HistoryDao
+    abstract fun historyDao(): HistoryDao
 
     /**
      * Define a companion object, this allows us to add functions on the HistoryDatabase class.
