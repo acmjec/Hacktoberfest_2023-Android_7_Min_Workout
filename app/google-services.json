@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "557288868925",
+    "project_id": "minutes-workout-30a39",
+    "storage_bucket": "minutes-workout-30a39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557288868925:android:dfa1d323f579c60a6e2e54",
+        "android_client_info": {
+          "package_name": "dev.panwar.a7minutesworkout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs7ikVs0JLJxF5syOfg7iHSYw0Hi3ATOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
